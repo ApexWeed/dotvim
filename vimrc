@@ -43,3 +43,8 @@ set t_Co=256
 syntax on
 set background=dark
 colorscheme gruvbox
+
+set colorcolumn=100
+
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:⋅
+set list
