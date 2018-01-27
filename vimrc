@@ -33,7 +33,7 @@ function MapToggle(key, opt)
 endfunction
 command -nargs=+ MapToggle call MapToggle(<f-args>)
 
-MapToggle <F1> expandtab
+MapToggle <F2> expandtab
 
 set nocompatible
 filetype off
