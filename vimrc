@@ -1,8 +1,8 @@
 set encoding=utf-8
 
 set termguicolors
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set number
@@ -76,10 +76,16 @@ call vundle#begin()
 Bundle 'Yggdroot/indentLine'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'morhetz/gruvbox'
-Plugin 'Quramy/tsuquyomi'
+"Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
+Plugin 'tpope/vim-obsession'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'tpope/vim-fugitive'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'tommcdo/vim-fubitive'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 filetype plugin indent on
@@ -93,3 +99,11 @@ set colorcolumn=100
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:⋅
 set list
+
+set statusline=%<%f\ %h%m%r
+set statusline+=%{FugitiveStatusline()}
+set statusline+=%=%-14.(%l,%c%V%)\ %P
+
+autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
