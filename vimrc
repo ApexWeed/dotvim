@@ -1,4 +1,5 @@
 set encoding=utf-8
+set t_u7=
 
 set termguicolors
 set tabstop=2
@@ -12,6 +13,13 @@ nmap <S-Tab> <<
 imap <S-Tab> <Esc><<i
 
 noremap <F8> :call HexMe()<CR>
+
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+inoremap <F7> <C-O>zM
+nnoremap <F7> zM
+
+inoremap <F9> <C-O>zR
+nnoremap <F9> zR
 
 let $in_hex=0
 function HexMe()
@@ -69,6 +77,7 @@ MapToggle <F2> expandtab
 
 set nocompatible
 filetype off
+let terraform_fmt_on_save = 1
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -86,6 +95,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'tommcdo/vim-fubitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'hashivim/vim-terraform'
 
 call vundle#end()
 filetype plugin indent on
@@ -107,3 +117,6 @@ set statusline+=%=%-14.(%l,%c%V%)\ %P
 autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
+autocmd FileType terraform setlocal foldmethod=syntax
+
